@@ -52,3 +52,5 @@ Mkfile.old
 dkms.conf
 
 first_year/CMakeLists\.txt
+
+\.idea/
