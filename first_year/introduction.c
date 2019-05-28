@@ -1,7 +1,11 @@
 #include <stdio.h>
 
+void getLetter(void);
+
 int main() {
     int num;
+
+    getLetter();
 
     printf("Hello, World!");
     printf("\n");
@@ -16,11 +20,12 @@ int main() {
     scanf("%i", &num);
     printf("Your number is: %i\n", num);
 
-    char letter;
+    return 0;
+}
 
+void getLetter(void) {
+    char letter;
     printf("Please, enter a letter: ");
     letter = getchar();
     printf("\n You have introduced the letter: %c", letter);
-
-    return 0;
 }
