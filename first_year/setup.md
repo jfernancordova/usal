@@ -1,8 +1,8 @@
-#Resources
+# Resources
 
 [El rincón del c](https://elrincondelc.com/)
 
-##Review
+## Review
 
 * Sistemas de numeración o Sístemas numéricos:
     1. Cuantos números representan en binario.
