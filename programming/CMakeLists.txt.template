@@ -5,11 +5,11 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
 include_directories(cmake-build-debug)
-include_directories(Programming)
+include_directories(programming)
 
 add_executable(usal
-        Arrays/four.c
-        Arrays/one.c
-        Arrays/three.c
-        Arrays/two.c
+        arrays/four.c
+        arrays/one.c
+        arrays/three.c
+        arrays/two.c
         introduction.c)
