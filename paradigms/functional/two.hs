@@ -1,7 +1,7 @@
 -- runhaskell two.hs
 
-compares:: Int -> Int -> Int -> Bool
-compares x y z =
+compareValues:: Int -> Int -> Int -> Bool
+compareValues x y z =
     if x == y && y == z && x == z then True else False
 
 main = do
@@ -14,4 +14,4 @@ main = do
     let x = (read inputOne :: Int)
     let y = (read inputTwo :: Int)
     let z = (read inputThree :: Int)
-    if (compares x y z) then  putStrLn "The values are the same"  else putStrLn "The values are not the same"
+    if (compareValues x y z) then  putStrLn "The values are the same"  else putStrLn "The values are not the same"
