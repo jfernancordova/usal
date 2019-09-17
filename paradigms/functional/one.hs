@@ -1,3 +1,4 @@
+-- runhaskell one.hs
 par:: Int -> Bool
 par x =
     if mod x 2==0
