@@ -8,4 +8,3 @@ plusMult(A,B,M,R):-R is (A+B) * M.
 
 %min
 min(A,B,Mi):-Min is A, A < B, !.
-min(A,B,Mi):-Min is B, B < A, !.
