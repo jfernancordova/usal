@@ -32,10 +32,10 @@ sumar(X, Y, Z, Res):- Res is X + Y + Z.
 menor(X, Y):- X < Y.
 
 /*
-Entrada, Principal y Postre es una comida equilibrada si es comida, tenga valor y sea menor.
+Entrada, Principal y Postre es una comida equilibrada si es comida, tenga valor y sea menor a 800.
+
 Una Entrada Principal y Postre es comida si tiene entrada, plato principal y postre.
 Una Entrada, Principal, Postre y Valor es valuable si tiene calorias y pueda sumar.
 X e Y es menor si X es menor a Y.
 */
 comida_equilibrada(Entrada, Principal, Postre):- comida(Entrada, Principal,Postre), valor(Entrada, Principal, Postre, Valor), menor(Valor, 800).
-
