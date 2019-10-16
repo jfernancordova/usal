@@ -2,5 +2,4 @@
 
 long([], 0):-!.
 
-long([_|XS], L):-long(XS, S),
-L is S + 1.
+long([_|XS], L):-long(XS, S), L is S + 1.

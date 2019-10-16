@@ -4,7 +4,7 @@ long([],0).
 long([_|T],L):- long(T,N), L is N+1.
 
 sum([],0).
-sum([X|F],S):- sum(F,O), S is O + X.
+sum([X|F],S):- sum(F,B), S is B + X.
 
 promedio(M,P):- long(M,L), sum(M,S), P is S/L.
 
