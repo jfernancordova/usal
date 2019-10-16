@@ -1,6 +1,12 @@
 -- runhaskell four.hs
 
-maximum' (x:xs) | (maximum xs) > x = maximum xs | otherwise = x
+gr :: Int -> Int -> Int -> Int
+gr a b c
+    |a > b = a
+    |a > c = a
+    |b > a = b
+    |b > c = b
+    |otherwise = c
 
 main = do 
-  print $ maximum' [2, 5, 9]
+  print $ gr 9 1 4

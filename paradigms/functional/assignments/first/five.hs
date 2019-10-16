@@ -1,6 +1,19 @@
 -- runhaskell five.hs
 
-maximum' (x:xs) | (maximum xs) > x = maximum xs | otherwise = x
+gr :: Int -> Int -> Int -> Int
+gr a b c
+    |a > b = a
+    |a > c = a
+    |b > a = b
+    |b > c = b
+    |otherwise = c
+
+add :: Int -> Int -> Int
+add x y = if x > y then x else y
 
 main = do 
-  print $ maximum' [2, 5, 9, 12, 15, 60]
+
+  let nv = (gr 9 1 4)
+  let ov = (gr 15 5 7)
+
+  print $ add nv ov

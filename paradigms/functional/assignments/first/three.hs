@@ -1,8 +1,10 @@
 -- runhaskell three.hs
 
-compareValues:: Int -> Int -> Int -> Int -> Bool
-compareValues x y z a = 
-    if x == y && y == z && x == z && a == z then True else False
+compareValues:: Int -> Int -> Int -> Bool
+compareValues x y z = if x == y && y == z && x == z then True else False
+
+addExtraValue:: Bool -> Int -> Int -> Bool
+addExtraValue compareValuesAreEquals newValue anyCompareValue = if compareValuesAreEquals && newValue == anyCompareValue then True else False
 
 main = do
 
@@ -22,5 +24,6 @@ main = do
     let y = (read inputTwo :: Int)
     let z = (read inputThree :: Int)
     let a = (read inputFour ::  Int)
+    let cv = (compareValues x y z)
     
-    if (compareValues x y z a) then  putStrLn "The values are the same" else putStrLn "The values are not the same"
+    if (addExtraValue cv a x) then  putStrLn "The values are the same" else putStrLn "The values are not the same"
