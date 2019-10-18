@@ -1,10 +1,17 @@
 --runhaskell four.hs
 
-mult::[Int] -> [Int]
-mult [] = []
-mult (x:xs) 
-  | mod x 2==0 = x * 2 : mult xs
-  | otherwise = mult xs
+pares::[Int] -> [Int]
+pares [] = []
+pares (x:xs) 
+  | mod x 2==0 = x : pares xs
+  | otherwise = pares xs
+
+mult :: [Int] -> Int
+mult [] = 1
+mult (x:xs) = x * mult xs
 
 main = do 
-    print $ mult[1,2, 8, 7]
+
+  let p = (pares [2,4,6,8,10,1,5,3])
+
+  print $ mult p

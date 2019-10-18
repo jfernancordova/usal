@@ -1,10 +1,11 @@
 --runhaskell three.hs
 
-student :: [(String, String, Int)] -> [(String, String, String, Int)]
-student [] = []
-student ((name, lastName, note) : xs ) = if note > 4 then ("Aprobado", name, lastName, note) : student xs 
-    else ("No Aprobado", name, lastName, note) : student xs  
+promedio :: (Real a, Fractional b) => [a] -> b
+promedio x = realToFrac (sum x) / (fromIntegral $ length x)    
 
---runhaskell class_ten.hs
+student :: (String, String, [Int]) -> (String, String, String)
+student (name, lastName, notes) = if (promedio notes) > 4 then ("Aprobado", name, lastName)
+    else ("No Aprobado", name, lastName)
+
 main = do 
-  print $ student [("Jose","Cordova", 2)]
+  print $ student ("Jose","Cordova", [2,5,10,2])
