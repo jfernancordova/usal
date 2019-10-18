@@ -1,0 +1,10 @@
+@startuml
+class People {
+    String name
+    String last_name
+    String dni
+    Date birth_date
+    String gender
+    String nacionality
+}
+@enduml
