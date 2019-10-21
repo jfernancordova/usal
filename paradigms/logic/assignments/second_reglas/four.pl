@@ -39,3 +39,14 @@ Una Entrada, Principal, Postre y Valor es valuable si tiene calorias y pueda sum
 X e Y es menor si X es menor a Y.
 */
 comida_equilibrada(Entrada, Principal, Postre):- comida(Entrada, Principal,Postre), valor(Entrada, Principal, Postre, Valor), menor(Valor, 800).
+
+calorias(paella). % La Paella no satisface el hecho calorias(Entrada, X) por falta del segundo argumento. Se hace backtracking hasta el último punto de decisión.
+calorias(trucha).  % La Trucha no satisface el hecho calorias(Entrada, X) por falta del segundo argumento. Se hace backtracking hasta el último punto de decisión.
+entrada(X). % La entrada X satisface el hecho entrada(X), dando como resultado X = Paella.
+calorias(Z,200). %La Z Y 200, satisface el hecho entrada(X), dando como resultado Z = Paella.
+plato_principal(trucha). % La Trucha satisface la regla plato principal.
+valor(consome,bacalao,flan,U). % El Consome, Bacalao, Flan y U, satisface la regla balor, dando como resultado U = 800.
+comida_equilibrada(trucha,bacalao,flan). % La Truca, El Bacalao y el Flan no satisface la regla comida_equilibrada.
+comida_equilibrada(trucha,bacalao,flan,Z). % La Truca, El Bacalao y el Flan no satisface la regla comida_equilibrada. Argumento Z erroneo.
+comida_equilibrada(gazpacho,filete_de_cerdo,naranja). % El gazpacho, filete de cerdo y naranja satisface la regla comida_equilibrada.
+comida_equilibrada(gazpacho,filete_de_cerdo,naranja,X). % El gazpacho, filete de cerdo y naranja no satisface la regla comida_equilibrada. Argumento X erroneo.
