@@ -1,0 +1,49 @@
+@startuml
+
+class People {
+    String name
+    String last_name
+    String dni
+    Date birth_date
+    String gender
+    String nacionality
+}
+
+class Students {
+    Real fee_paid
+}
+
+class Teachers {
+    Real amount_hours
+    Real value
+}
+
+class Address {
+    String street
+    Int number
+    Int Floor 
+    String deparment 
+    String location 
+    String province 
+    String country
+}
+
+class Subjects {
+    String name
+    String code 
+    String type
+}
+
+class Correlatives {
+    String name 
+    String subject
+    String code 
+    String requirement
+}
+
+People <|-- Students
+People <|-- Teachers
+People o-- Address
+Subjects *-- Correlatives
+
+@enduml

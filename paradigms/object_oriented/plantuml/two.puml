@@ -1,0 +1,24 @@
+@startuml
+
+class People {
+    String name
+    String last_name
+    String dni
+    Date birth_date
+    String gender
+    String nacionality
+}
+
+class Students {
+    Real fee_paid
+}
+
+class Teachers {
+    Real amount_hours
+    Real value
+}
+
+People <|-- Students
+People <|-- Teachers
+
+@enduml
