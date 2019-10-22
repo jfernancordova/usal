@@ -4,7 +4,7 @@ color(rojo).% Rojo es un color.
 
 doctor(hernandez).%Hernandez es un Doctor.
 
-opera(hernandez,gonzalez).%El Doctor Gonzalez opera a Hernandez.
+opera(hernandez,gonzalez).%El Doctor Hernandez opera a Gonzalez.
 
 operario(marcos).%Marcos es un Opeario.
 operario(candelaria).%Candelaria es un Opeario. 
