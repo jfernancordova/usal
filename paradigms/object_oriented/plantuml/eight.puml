@@ -1,0 +1,37 @@
+@startuml
+
+class Courses {
+    String code 
+    String short_description
+    Int duration
+    Date schedule
+    Real price
+}
+
+class Registration {
+    String name 
+    String last_name 
+    Int document 
+    String work_activity
+}
+
+class PaymentMethod {
+    String type
+}
+
+class CardType {
+    String type
+    Int number
+    Int security_code
+    Date expiration
+}
+
+class CashType {
+    Int amount_cash
+}
+
+PaymentMethod o-- CardType
+PaymentMethod CashType
+
+
+@enduml

@@ -56,7 +56,7 @@ People o-- Address
 Subjects *-- Correlatives
 
 Courses *-- Subjects
-Courses o-- People
+Courses o-- Students
 Courses *-- Teachers
 
 @enduml

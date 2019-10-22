@@ -51,7 +51,7 @@ class Courses {
 
 class Grades {
     Real grade 
-    String TypeGrade
+    String type
 }
 
 class TypeGrade {
@@ -65,10 +65,10 @@ People o-- Address
 Subjects *-- Correlatives
 
 Courses *-- Subjects
-Courses o-- People
+Courses o-- Students
 Courses *-- Teachers
 
-People *-- Grades
+Students *-- Grades
 
 Grades o-- TypeGrade
 
