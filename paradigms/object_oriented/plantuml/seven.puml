@@ -1,75 +1,72 @@
 @startuml
 
 class People {
-    String name
-    String last_name
-    String dni
-    Date birth_date
-    String gender
-    String nacionality
+    # name: string
+    # last_name: string
+    # dni: int
+    # birth_date: date 
+    # gender: string
+    # nacionality: string
 }
 
 class Students {
-    Real fee_paid
+    - fee_paid: real
 }
 
 class Teachers {
-    Real amount_hours
-    Real value
+    - amount_hours: real
+    - value: real
 }
 
 class Address {
-    String street
-    Int number
-    Int Floor 
-    String deparment 
-    String location 
-    String province 
-    String country
+    - street: string
+    - number: string
+    - floor: int
+    - deparment: string 
+    - location: string 
+    - province: string 
+    - country: string
 }
 
 class Subjects {
-    String name
-    String code 
-    String type
-}
-
-class Correlatives {
-    String name 
-    String subject
-    String code 
-    String requirement
+    - name: string
+    - code: string 
+    - type: string
+    - correlatives: array
 }
 
 class Courses {
-    String year
-    String subject
-    String teacher
-    String students 
-    String classroom
+    - year: int
+    - subject: Subjects
+    - teacher: Teachers
+    - students: Students
+    - classroom: string
+}
+
+class StudentGrade {
+    - grade: Grades
+    - student: Students
 }
 
 class Grades {
-    Real grade 
-    String type
-}
-
-class TypeGrade {
-    String name
+    - grade: real 
+    - type: string
+    - typeGrade: string
 }
 
 People <|-- Students
 People <|-- Teachers
-People o-- Address
 
-Subjects *-- Correlatives
+People *-- Address
 
-Courses *-- Subjects
-Courses o-- Students
-Courses *-- Teachers
+Subjects o-- Subjects
 
-Students *-- Grades
+Courses o-- Subjects
+Courses o-- Teachers
 
-Grades o-- TypeGrade
+Courses *-- StudentGrade
+StudentGrade *-- Grades
+StudentGrade o-- Students
+
 
 @enduml
