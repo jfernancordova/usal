@@ -1,4 +1,4 @@
---runhaskell three.hs
+--runhaskell eight.hs
 
 students :: [(String, [Int])] -> [(String, String, Int)]
 students [] = []
@@ -6,11 +6,11 @@ students ((alum, notes) : xs )
   | ((sum notes) `div` length notes) > 4 = (alum, "Aprobado", ((sum notes) `div` length notes) ) : students xs
   | otherwise = (alum, "No Aprobado", ((sum notes) `div` length notes)) : students xs
 
-countStudents :: [(String, String, Int)] -> [(Int, String)]
+countStudents :: [(String, [Int])] -> [String]
 countStudents [] = []
-countStudents ((alum, _, note) : xs ) 
-  | note > 4 = (length xs , "Aprobados") : countStudents xs
-  | otherwise = countStudents xs
+countStudents ((alum, notes) : xs )
+  | ((sum notes) `div` length notes) > 4 = "Aprobado" : countStudents xs
+  | otherwise = "Desaprobado" : countStudents xs
 
 main = do 
 
@@ -19,4 +19,5 @@ main = do
   let lucas = ("Lucas Hasda", [6,6,6,6])
   let terry = ("Terry Torrico", [2,2,2,2])
 
-  print $ countStudents (students  [jose, juani, lucas, terry])
+  print $ students [jose, juani, lucas, terry]
+  print $ countStudents [jose, juani, lucas, terry]
