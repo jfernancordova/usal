@@ -4,4 +4,4 @@ potency :: Int -> [Int]
 potency n = takeWhile (<n) (map (2^) [0..])
 
 main = do 
-    print $ potency 20
+    print $ potency 5
