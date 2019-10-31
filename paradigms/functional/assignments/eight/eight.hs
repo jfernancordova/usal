@@ -21,6 +21,6 @@ potComp = [2^n | n <- [10..50], mod n 2 /= 0]
 
 main = do
   print $ potComp
-  print $ potCondImparList [10..50] 
-  print $ potCondImparList [10..50] 
+  print $ potCondImparList [10..150] 
+  print $ potCondImparList [10..150] 
 
