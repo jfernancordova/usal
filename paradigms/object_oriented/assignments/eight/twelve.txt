@@ -1,0 +1,229 @@
+class HomeAppliances
+{
+    /**
+     * @var string
+     */
+    protected $code;
+
+    /**
+     * @var string
+     */
+    protected $description;
+
+    /**
+     * @var float
+     */
+    protected $price_base;
+
+    /**
+     * @var string
+     */
+    protected $color;
+
+    /**
+     * @var string
+     */
+    protected $energy;
+
+    /**
+     * @var float
+     */
+    protected $weight;
+
+    /**
+     * @return float
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * @param float $weight
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPriceBase()
+    {
+        return $this->price_base;
+    }
+
+    /**
+     * @param float $price_base
+     */
+    public function setPriceBase($price_base)
+    {
+        $this->price_base = $price_base;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEnergy()
+    {
+        return $this->energy;
+    }
+
+    /**
+     * @param string $energy
+     */
+    public function setEnergy($energy)
+    {
+        $this->energy = $energy;
+    }
+
+    /**
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * @param string $color
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+    }
+}
+
+class WashingMachine extends homeAppliances
+{
+    public function buy($load)
+    {
+        if ($load > 30) {
+            $this->price_base += 300;
+            return $this->price_base;
+        }
+        return $this->price_base;
+    }
+}
+
+class Television extends homeAppliances
+{
+
+    public function buy($technology, $quality)
+    {
+        if ($technology == '3D' && $quality == '4K') {
+            $increment = ($this->price_base * 25) / 100;
+            $this->price_base += $increment;
+            return $this->price_base;
+        }
+        return $this->price_base;
+    }
+}
+
+class Invoice
+{
+
+    /**
+     * @var HomeAppliances
+     */
+    private $tv;
+
+    /**
+     * @var HomeAppliances
+     */
+    private $wm;
+
+    public function __construct(HomeAppliances $tv, HomeAppliances $wm)
+    {
+        $this->tv = $tv;
+        $this->wm = $wm;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotalPrice()
+    {
+        return $this->tv->getPriceBase() + $this->wm->getPriceBase();
+    }
+
+    /**
+     * @return array
+     */
+    public function getTotalInfo()
+    {
+        return [
+            'Television' => [
+                'Code' => $this->tv->getCode(),
+                'Description' => $this->tv->getDescription(),
+                'Color' => $this->tv->getColor(),
+                'Energy' => $this->tv->getEnergy(),
+                'Price' => $this->tv->getPriceBase(),
+                'Weight' => $this->tv->getWeight()
+            ],
+            'Washing Machine' => [
+                'Code' => $this->wm->getCode(),
+                'Description' => $this->wm->getDescription(),
+                'Color' => $this->wm->getColor(),
+                'Energy' => $this->wm->getEnergy(),
+                'Price' => $this->wm->getPriceBase(),
+                'Weight' => $this->wm->getWeight()
+            ]
+        ];
+    }
+}
+
+$television = new Television();
+$television->setCode('A-‎2448');
+$television->setDescription('Smart TV');
+$television->setColor('Black');
+$television->setEnergy('A');
+$television->setPriceBase(25000);
+$television->setWeight(72.5);
+$television->buy('3D', '4K');
+
+$washingMachine = new WashingMachine();
+$washingMachine->setCode('B-2679');
+$washingMachine->setDescription('Samsung Washing');
+$washingMachine->setColor('White');
+$washingMachine->setEnergy('D');
+$washingMachine->setPriceBase(10000);
+$washingMachine->setWeight(30);
+$washingMachine->buy(30);
+
+$invoice = new Invoice($television, $washingMachine);
+$invoice->getTotalInfo();
+$invoice->getTotalPrice();

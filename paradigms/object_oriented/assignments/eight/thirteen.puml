@@ -1,0 +1,32 @@
+@startuml
+
+class Venta {
+    - date: date
+    - local: Local
+    - homeAppliance: HomeAppliances
+    - price: Float 
+    - soldQuantity: Int 
+    - soldType: String
+}
+
+class HomeAppliances {
+    - code: string
+    - description: string
+    - price_base: float 
+    - color: string
+    - energy: string
+    - weight: float
+}
+
+class Local {
+    - number: int 
+    - name: string 
+    - address: string 
+    - responsability: string
+}
+
+Venta *-- HomeAppliances
+Venta o-- Local
+
+
+@enduml
